@@ -89,6 +89,9 @@ bool validRight(string right) {
   bool startswithSymbol = firstChar == '+' || firstChar == '-';
   if (startswithSymbol) {
     string rightRemoved = right.substr(1, right.size() - 1);
+    if (rightRemoved.size() == 0){
+       return false;
+    }
     return isNumber(rightRemoved);
   } else {
     return isNumber(right);
@@ -100,6 +103,9 @@ bool validLeft(string left) {
   bool startswithSymbol = firstChar == '+' || firstChar == '-';
   if (startswithSymbol) {
     string leftRemoved = left.substr(1, left.size() - 1);
+    if (leftRemoved.size() == 0){
+       return false;
+    }
     return isFloat(leftRemoved);
   } else {
     return isFloat(left);
@@ -121,6 +127,9 @@ bool isFloatExp(string target) {
     bool startswithSymbol = firstChar == '+' || firstChar == '-';
     if (startswithSymbol) {
       string firstCharRemoved = target.substr(1, target.size() - 1);
+      if (firstCharRemoved.size() == 0){
+         return false;
+      }
       return isFloat(firstCharRemoved);
     } else {
       return isFloat(target);
